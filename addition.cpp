@@ -12,6 +12,6 @@ cout<<"the difference is "<<abs(a-b)<<endl;
 cout<<"the product is: "<<a*b<<endl;
 cout<<"the division is: "<<a/b<<endl;
 
-
+cout<<"the new code status is added"<<endl;
 return 0;
 }
