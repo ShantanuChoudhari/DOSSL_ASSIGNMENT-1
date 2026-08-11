@@ -21,9 +21,15 @@ function addTask() {
             <div class="priority">Priority: ${priority}</div>
         </div>
 
-        <button class="delete-btn" onclick="deleteTask(this)">
-            Delete
-        </button>
+        <div>
+            <button class="complete-btn" onclick="completeTask(this)">
+                Mark Done
+            </button>
+
+            <button class="delete-btn" onclick="deleteTask(this)">
+                Delete
+            </button>
+        </div>
     `;
 
     taskList.appendChild(li);
@@ -33,8 +39,20 @@ function addTask() {
     updateEmptyMessage();
 }
 
+function completeTask(button) {
+    const task = button.parentElement.parentElement;
+
+    task.classList.toggle("completed");
+
+    if (task.classList.contains("completed")) {
+        button.textContent = "Completed";
+    } else {
+        button.textContent = "Mark Done";
+    }
+}
+
 function deleteTask(button) {
-    button.parentElement.remove();
+    button.parentElement.parentElement.remove();
     updateEmptyMessage();
 }
 
