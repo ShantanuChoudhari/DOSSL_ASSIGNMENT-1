@@ -63,3 +63,38 @@ function updateEmptyMessage() {
         emptyMessage.style.display = "none";
     }
 }
+function addTask() {
+
+    const studentName = document.getElementById("studentName").value;
+    const task = document.getElementById("taskInput").value;
+    const dueDate = document.getElementById("dueDate").value;
+    const status = document.getElementById("status").value;
+
+    if (studentName === "" || task === "" || dueDate === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const table = document.getElementById("taskTable");
+
+    const row = table.insertRow();
+
+    row.insertCell(0).textContent = studentName;
+    row.insertCell(1).textContent = task;
+    row.insertCell(2).textContent = dueDate;
+    row.insertCell(3).textContent = status;
+
+    const deleteCell = row.insertCell(4);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+
+    deleteButton.onclick = function () {
+        row.remove();
+    };
+
+    deleteCell.appendChild(deleteButton);
+
+    document.getElementById("taskInput").value = "";
+    document.getElementById("dueDate").value = "";
+}
