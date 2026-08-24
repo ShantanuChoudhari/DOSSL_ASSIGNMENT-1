@@ -3,7 +3,10 @@ const priorityInput = document.getElementById("priorityInput");
 const taskList = document.getElementById("taskList");
 const emptyMessage = document.getElementById("emptyMessage");
 
+
+// Add a new task
 function addTask() {
+
     const taskName = taskInput.value.trim();
     const priority = priorityInput.value;
 
@@ -13,22 +16,36 @@ function addTask() {
     }
 
     const li = document.createElement("li");
+
     li.className = "task";
 
     li.innerHTML = `
         <div class="task-info">
-            <div class="task-name">${taskName}</div>
-            <div class="priority">Priority: ${priority}</div>
+
+            <div class="task-name">
+                ${taskName}
+            </div>
+
+            <div class="priority">
+                Priority: ${priority}
+            </div>
+
         </div>
 
-        <div>
-            <button class="complete-btn" onclick="completeTask(this)">
+        <div class="task-actions">
+
+            <button
+                class="complete-btn"
+                onclick="completeTask(this)">
                 Mark Done
             </button>
 
-            <button class="delete-btn" onclick="deleteTask(this)">
+            <button
+                class="delete-btn"
+                onclick="deleteTask(this)">
                 Delete
             </button>
+
         </div>
     `;
 
@@ -39,62 +56,78 @@ function addTask() {
     updateEmptyMessage();
 }
 
+
+// Mark task as completed
 function completeTask(button) {
+
     const task = button.parentElement.parentElement;
 
     task.classList.toggle("completed");
 
     if (task.classList.contains("completed")) {
+
         button.textContent = "Completed";
+
     } else {
+
         button.textContent = "Mark Done";
+
     }
 }
 
+
+// Delete task
 function deleteTask(button) {
-    button.parentElement.parentElement.remove();
+
+    const task = button.parentElement.parentElement;
+
+    task.remove();
+
     updateEmptyMessage();
 }
 
+
+// Update empty task message
 function updateEmptyMessage() {
+
     if (taskList.children.length === 0) {
+
         emptyMessage.style.display = "block";
+
     } else {
+
         emptyMessage.style.display = "none";
+
     }
 }
-function addTask() {
 
-    const studentName = document.getElementById("studentName").value;
-    const task = document.getElementById("taskInput").value;
-    const dueDate = document.getElementById("dueDate").value;
-    const status = document.getElementById("status").value;
 
-    if (studentName === "" || task === "" || dueDate === "") {
-        alert("Please fill all fields");
-        return;
+// Search tasks
+function searchTasks() {
+
+    const searchText = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const tasks = taskList.getElementsByClassName("task");
+
+    for (let i = 0; i < tasks.length; i++) {
+
+        const taskName = tasks[i]
+            .querySelector(".task-name")
+            .textContent
+            .toLowerCase();
+
+        if (taskName.includes(searchText)) {
+
+            tasks[i].style.display = "flex";
+
+        } else {
+
+            tasks[i].style.display = "none";
+
+        }
     }
-
-    const table = document.getElementById("taskTable");
-
-    const row = table.insertRow();
-
-    row.insertCell(0).textContent = studentName;
-    row.insertCell(1).textContent = task;
-    row.insertCell(2).textContent = dueDate;
-    row.insertCell(3).textContent = status;
-
-    const deleteCell = row.insertCell(4);
-
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-
-    deleteButton.onclick = function () {
-        row.remove();
-    };
-
-    deleteCell.appendChild(deleteButton);
-
-    document.getElementById("taskInput").value = "";
-    document.getElementById("dueDate").value = "";
 }
