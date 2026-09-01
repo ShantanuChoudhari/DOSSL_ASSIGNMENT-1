@@ -378,7 +378,6 @@ git push origin main
 
 ---
 
-# Commonly Used Commands Summary
 
 | Command | Description |
 |----------|-------------|
