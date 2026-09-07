@@ -1,0 +1,21 @@
+{
+  "name": "dossl_assignment-1",
+  "version": "1.0.0",
+  "description": "This document contains the basic Git commands used in this project along with their purpose.",
+  "main": "script.js",
+  "scripts": {
+     "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShantanuChoudhari/DOSSL_ASSIGNMENT-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ShantanuChoudhari/DOSSL_ASSIGNMENT-1/issues"
+  },
+  "homepage": "https://github.com/ShantanuChoudhari/DOSSL_ASSIGNMENT-1#readme"
+}
