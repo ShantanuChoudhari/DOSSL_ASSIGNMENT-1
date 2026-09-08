@@ -10,17 +10,11 @@
 
 #emptyMessage {
     padding: 35px 20px;
-
     text-align: center;
-
     color: #94a3b8;
-
     font-size: 14px;
-
     background: #f8fafc;
-
     border: 1px dashed #cbd5e1;
-
     border-radius: 10px;
 }
 
@@ -29,18 +23,77 @@
    RESPONSIVE DESIGN
 ================================ */
 
-/* ...keep the responsive section... */
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    header {
+        padding: 30px 20px;
+        border-radius: 12px 12px 0 0;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .task-input {
+        padding: 18px;
+    }
+
+    .task-input input,
+    .task-input select,
+    .task-input button {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .task-section {
+        padding: 20px;
+    }
+
+    .task {
+        align-items: flex-start;
+        padding: 14px;
+    }
+
+    .delete-btn {
+        padding: 7px 10px;
+    }
+}
 
 
 /* ================================
    ACCESSIBILITY
 ================================ */
 
-/* ...keep accessibility section... */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.25);
+    outline-offset: 2px;
+}
 
 
 /* ================================
    SMOOTH SCROLLBAR
 ================================ */
 
-/* ...keep scrollbar section... */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
