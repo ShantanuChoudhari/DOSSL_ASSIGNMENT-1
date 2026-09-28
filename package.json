@@ -4,7 +4,8 @@
   "description": "This document contains the basic Git commands used in this project along with their purpose.",
   "main": "script.js",
   "scripts": {
-     "test": "node test.js"
+     "test": "node test.js",
+     "build": "node build.js"
   },
   "repository": {
     "type": "git",

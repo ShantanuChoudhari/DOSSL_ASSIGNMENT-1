@@ -1,17 +1,28 @@
-const fs = require('fs');
+const fs = require("fs");
 
 console.log("Running project tests...");
 
-if (!fs.existsSync('index.html')) {
-    throw new Error("index.html is missing");
+const requiredFiles = [
+    "index.html",
+    "style.css",
+    "script.js",
+    "package.json"
+];
+
+let allFilesPresent = true;
+
+for (const file of requiredFiles) {
+    if (fs.existsSync(file)) {
+        console.log(`✓ ${file} exists`);
+    } else {
+        console.log(`✗ ${file} is missing`);
+        allFilesPresent = false;
+    }
 }
 
-if (!fs.existsSync('style.css')) {
-    throw new Error("style.css is missing");
-}
-
-if (!fs.existsSync('script.js')) {
-    throw new Error("script.js is missing");
+if (!allFilesPresent) {
+    console.error("Tests failed!");
+    process.exit(1);
 }
 
 console.log("All required project files are present.");
