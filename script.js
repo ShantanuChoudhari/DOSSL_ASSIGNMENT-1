@@ -14,7 +14,7 @@ function addTask() {
         alert("Please enter a task.");
         return;
     }
-
+    //Adding extra comment
     const li = document.createElement("li");
 
     li.className = "task";
