@@ -2,17 +2,20 @@ pipeline {
 
     agent any
 
+pipeline {
+    agent any
+
     stages {
 
         stage('Checkout') {
             steps {
-                echo 'Checking out source code from GitHub'
+                echo 'Checking out code from GitHub'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                echo 'Installing npm dependencies'
+                echo 'Installing dependencies'
                 sh 'npm install'
             }
         }
@@ -33,7 +36,6 @@ pipeline {
     }
 
     post {
-
         success {
             echo 'SUCCESS: Build and all tests passed!'
         }
@@ -43,7 +45,7 @@ pipeline {
         }
 
         always {
-            echo 'Jenkins Pipeline execution completed.'
+            echo 'Pipeline execution completed.'
         }
     }
 }
