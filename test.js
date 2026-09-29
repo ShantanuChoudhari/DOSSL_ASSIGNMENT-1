@@ -5,7 +5,7 @@ console.log("Running project tests...");
 const requiredFiles = [
     "index.html",
     "style.css",
-    "wrong.js",
+    "script.js",
     "package.json"
 ];
 
