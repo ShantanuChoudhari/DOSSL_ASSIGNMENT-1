@@ -1,6 +1,6 @@
 .task.completed .task-name {
     text-decoration: line-through;
-    color: gray;
+    color: aqua;
 }
 
 
