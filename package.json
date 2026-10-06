@@ -4,8 +4,9 @@
   "description": "This document contains the basic Git commands used in this project along with their purpose.",
   "main": "script.js",
   "scripts": {
-     "test": "node test.js",
-     "build": "node build.js"
+    "start": "node server.js",
+    "test": "node test.js",
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/ShantanuChoudhari/DOSSL_ASSIGNMENT-1/issues"
   },
-  "homepage": "https://github.com/ShantanuChoudhari/DOSSL_ASSIGNMENT-1#readme"
+  "homepage": "https://github.com/ShantanuChoudhari/DOSSL_ASSIGNMENT-1#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "prom-client": "^15.1.3"
+  }
 }
