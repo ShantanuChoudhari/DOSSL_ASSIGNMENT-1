@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node test1.js",
+    "test": "node wrong.js",
     "build": "node build.js"
   },
   "repository": {
