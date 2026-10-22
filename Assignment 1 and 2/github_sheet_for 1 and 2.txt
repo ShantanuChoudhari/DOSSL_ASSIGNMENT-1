@@ -1,0 +1,145 @@
+GITHUB COMMANDS CHEAT SHEET
+==========================
+
+1. BASIC GIT SETUP
+------------------
+git --version
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+2. CREATE A REPOSITORY LOCALLY
+------------------------------
+mkdir Student-Task-Manager
+cd Student-Task-Manager
+git init
+echo "# Student Task Manager" > README.md
+git add README.md
+git commit -m "Initial commit"
+
+3. CONNECT TO A GITHUB REPOSITORY
+---------------------------------
+git remote add origin https://github.com/USERNAME/REPOSITORY.git
+git branch -M main
+git push -u origin main
+
+If the remote repository already contains files, clone it instead of running git init:
+git clone https://github.com/USERNAME/REPOSITORY.git
+cd REPOSITORY
+
+4. CHECK STATUS AND HISTORY
+---------------------------
+git status
+git log --oneline
+git branch
+git remote -v
+
+5. MAKE AND PUSH A CHANGE
+-------------------------
+git pull origin main
+# Edit or create your files
+git add .
+git commit -m "Describe your change"
+git push origin main
+
+6. BRANCHING WORKFLOW
+---------------------
+# Get the latest main branch
+git switch main
+git pull origin main
+
+# Create and switch to a feature branch
+git switch -c feature/add-task-priority
+
+# Work on your files, then save the changes
+git status
+git add .
+git commit -m "Add task priority feature"
+
+# Push the feature branch to GitHub
+git push -u origin feature/add-task-priority
+
+# After review and merge, update your local main branch
+git switch main
+git pull origin main
+
+7. COLLABORATION WORKFLOW (COLLABORATOR)
+----------------------------------------
+A. Repository owner:
+   1. Open the repository on GitHub.
+   2. Go to Settings > Collaborators (or Collaborators and teams).
+   3. Invite the collaborator by their GitHub username.
+   4. The collaborator accepts the invitation.
+
+B. Collaborator:
+   # Clone the owner's repository (one time)
+   git clone https://github.com/OWNER/REPOSITORY.git
+   cd REPOSITORY
+
+   # Check branches and update main
+   git switch main
+   git pull origin main
+
+   # Create your own feature branch
+   git switch -c feature/your-feature-name
+
+   # Make changes, then commit and push your branch
+   git add .
+   git commit -m "Implement your feature"
+   git push -u origin feature/your-feature-name
+
+   # Open GitHub in a browser and create a Pull Request (PR)
+   # Set base: main  <- compare: feature/your-feature-name
+   # Add a description and request review.
+
+C. Repository owner/reviewer:
+   1. Review the Pull Request on GitHub.
+   2. Request changes or approve it.
+   3. Merge the PR on GitHub (unless the team agreed that someone else merges).
+   4. Tell the collaborator when it is merged.
+
+D. Collaborator after the PR is merged:
+   git switch main
+   git pull origin main
+   git branch -d feature/your-feature-name
+
+   # Optional: remove the branch from the remote after it has been merged
+   git push origin --delete feature/your-feature-name
+
+8. GET CHANGES FROM TEAMMATES
+-----------------------------
+git switch main
+git pull origin main
+
+# Bring updated main into your feature branch
+git switch feature/your-feature-name
+git merge main
+
+# If conflicts occur:
+git status
+# Open the conflicted files and resolve the conflict markers:
+# <<<<<<<, =======, >>>>>>>
+git add .
+git commit -m "Resolve merge conflicts"
+
+9. MERGE A BRANCH LOCALLY (IF YOUR TEAM USES THIS METHOD)
+---------------------------------------------------------
+git switch main
+git pull origin main
+git merge feature/your-feature-name
+git push origin main
+
+For class/team collaboration, a Pull Request is usually preferred so the owner can review changes before merging.
+
+10. USEFUL COMMANDS
+------------------
+git diff                         # Show unstaged changes
+git diff --staged                # Show staged changes
+git restore FILENAME             # Discard unstaged changes in a file
+git restore --staged FILENAME    # Unstage a file
+git fetch origin                 # Download remote updates without merging
+git branch                       # List local branches
+git branch -a                    # List local and remote branches
+git switch main                  # Switch to main
+git merge BRANCH_NAME            # Merge a branch into current branch
+git remote -v                    # Show remote URLs
+
